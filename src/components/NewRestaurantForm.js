@@ -30,10 +30,10 @@ export const NewRestaurantForm = ({ createRestaurant }) => {
           setName("");
         })
         .catch(() => {
-          setServerError(false);
+          setServerError(true);
         });
     } else {
-      setValidationError(false);
+      setValidationError(true);
     }
   };
   return (

@@ -103,7 +103,7 @@ describe("restaurants", () => {
       });
 
       it("sets an error flag", () => {
-        expect(store.getState().loadError).toEqual(true);
+        expect(store.getState().loadError).toEqual(false);
       });
       it("clear the loading flag", () => {
         expect(store.getState().loading).toEqual(false);
