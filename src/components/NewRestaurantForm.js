@@ -1,33 +1,33 @@
-import { useState } from "react";
-import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Alert from "@material-ui/lab/Alert";
-import { createRestaurant } from "../store/restaurants/actions";
+import {useState} from 'react';
+import {connect} from 'react-redux';
+import {makeStyles} from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Alert from '@material-ui/lab/Alert';
+import {createRestaurant} from '../store/restaurants/actions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    "& > *": {
+    '& > *': {
       margin: theme.spacing(1),
     },
   },
 }));
 
-export const NewRestaurantForm = ({ createRestaurant }) => {
+export const NewRestaurantForm = ({createRestaurant}) => {
   const classes = useStyles();
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [validationError, setValidationError] = useState(false);
   const [serverError, setServerError] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (name) {
       setValidationError(false);
       setServerError(false);
       createRestaurant(name)
         .then(() => {
-          setName("");
+          setName('');
         })
         .catch(() => {
           setServerError(true);
@@ -47,7 +47,7 @@ export const NewRestaurantForm = ({ createRestaurant }) => {
       <Box display="flex" className={classes.root}>
         <TextField
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
           placeholder="Add Restaurant"
           fullWidth
           variant="filled"
@@ -65,6 +65,6 @@ export const NewRestaurantForm = ({ createRestaurant }) => {
   );
 };
 const mapStateToProps = null;
-const mapDispatchToProps = { createRestaurant };
+const mapDispatchToProps = {createRestaurant};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewRestaurantForm);

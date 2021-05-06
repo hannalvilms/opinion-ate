@@ -1,10 +1,10 @@
-import { combineReducers } from "redux";
+import {combineReducers} from 'redux';
 import {
   START_LOADING,
   STORE_RESTAURANTS,
   RECORD_LOADING_ERROR,
   ADD_RESTAURANT,
-} from "./actions";
+} from './actions';
 
 const records = (state = [], action) => {
   switch (action.type) {
